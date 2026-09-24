@@ -489,8 +489,9 @@ contact = page_hero("Contact", "Let's <em>Connect</em>", "Membership is now open
 """
 page("contact", f"Contact — {NAME}", "Contact the Secretary or President of Meenaa's Millionaire Club for membership enquiries.", "contact", contact)
 
-# 404
+# 404 (base path matches the GitHub Pages project URL)
+BASE = "/meenas-club/"
 with open(os.path.join(ROOT, "404.html"), "w", encoding="utf-8") as f:
-    f.write(head("Page not found — " + NAME, "Page not found", "/") .replace('href="/assets', 'href="/assets')
-            + header("/", "") + '<section class="page-hero"><div class="wrap"><p class="kicker">404</p><h1>Page not found</h1><p class="lead">The page you were looking for does not exist.</p><p><a class="btn" href="/">Back to home</a></p></div></section>' + footer("/"))
+    f.write(head("Page not found — " + NAME, "Page not found", BASE)
+            + header(BASE, "") + f'<section class="page-hero"><div class="wrap"><p class="kicker">404</p><h1>Page not found</h1><p class="lead">The page you were looking for does not exist.</p><p><a class="btn" href="{BASE}">Back to home</a></p></div></section>' + footer(BASE))
 print("built")
